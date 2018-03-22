@@ -1,13 +1,14 @@
 # Mobile Flashcards
 
 Submitted by Miguel Guadarrama
+
 React Nanodegree
 
 ## Notes:
-To install: `yarn install`
-To run: `yarn ios` or `yarn start`
+* To install: `yarn install`
+* To run: `yarn ios` or `yarn start`
 
-Tested on `ios emulator` and `expo app for Android`
+* Tested on `ios emulator` and `expo app for Android`
 
 -----
 
