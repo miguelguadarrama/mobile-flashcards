@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
+import { addCardToDeckDB } from '../../actions/deck'
 
 class CardAdd extends React.Component {
 
@@ -9,7 +10,13 @@ class CardAdd extends React.Component {
         answer: ''
     }
     Submit = () => {
-
+        const deck = this.props.navigation.state.params.title
+        const { question, answer } = this.state
+        if(question.length === 0 || answer.length === 0){
+            return false;
+        }
+        this.props.addToDeck(deck, question, answer)
+        this.props.navigation.goBack()
     }
     render() {
         const { title } = this.props.navigation.state.params
@@ -36,7 +43,7 @@ class CardAdd extends React.Component {
     }
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 10,
@@ -62,12 +69,22 @@ const styles = StyleSheet.create({
         borderColor: '#DDD',
         borderWidth: 1,
         marginBottom: 20,
+        padding: 5,
     },
     title: {
         fontSize: 18,
         alignItems: 'center',
         padding: 10
+    },
+    error: {
+        color: 'red'
     }
 })
 
-export default connect()(CardAdd)
+const mapDispatchToProps = dispatch => {
+    return {
+        addToDeck: (deck, question, answer) => addCardToDeckDB(deck, question, answer)(dispatch)
+    }
+}
+
+export default connect(null, mapDispatchToProps)(CardAdd)
