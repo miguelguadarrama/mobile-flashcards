@@ -14,11 +14,6 @@ export const getDecks = () => {
                     };
                 }
             })
-            /*.filter(items => {
-                if (items) {
-                    return typeof items.questions !== 'undefined'
-                }
-            }*/
         )
     )
 }

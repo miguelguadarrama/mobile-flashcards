@@ -47,5 +47,5 @@ export const addDeckToDB = (deck) => dispatch => {
 }
 
 export const fetchDecks = () => dispatch => {
-    getDecks().then(data => { console.log(data); dispatch(setDecks(data)) })
+    getDecks().then(data => dispatch(setDecks(data)))
 }

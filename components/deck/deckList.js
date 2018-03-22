@@ -19,7 +19,6 @@ class Decks extends React.Component {
     }
     render() {
         const { decks } = this.props
-        console.log(decks)
         return (
             <ScrollView contentContainerStyle={styles.vpad} style={styles.container}>
                 {decks && Object.keys(decks).map(title => (
